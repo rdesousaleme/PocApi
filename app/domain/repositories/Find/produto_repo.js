@@ -2,7 +2,7 @@ module.exports = function(db,produtoSchema) {
 var typeorm = require("typeorm");
 
 var EntitySchema = typeorm.EntitySchema;
-return typeorm.createConnection({
+ typeorm.createConnection({
     type: "postgres",
     host: "localhost",
     port: 5432,
