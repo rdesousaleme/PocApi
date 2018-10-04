@@ -1,6 +1,7 @@
-module.exports = function(app,Repositorio,produtoSchema, db) {
+module.exports = function(app,Repositorio,RepositorioFind,produtoSchema, db) {
     app.get('/produto/:id', (req, res) => {
-        res.send('Hello')
+       var retorno = RepositorioFind(req.params.id, produtoSchema)
+        res.send(retorno)
     });
     app.post('/produto', (req, res) => {
         const produto = { descricao: req.body.descricao }
