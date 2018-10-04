@@ -3,8 +3,8 @@ module.exports = function(app, db) {
         res.send('Hello')
     });
     app.post('/produto', (req, res) => {
-        const note = { descricao: req.body.descricao }
-        console.log(req.body)
+        const produto = { descricao: req.body.descricao }
+        require('./app/domain/repositories')(produto);
         res.send('Hello')
       });
   };
