@@ -1,9 +1,10 @@
-module.exports = function(db) {
+module.exports = function(db,produtoSchema) {
 var typeorm = require("typeorm");
+
 var EntitySchema = typeorm.EntitySchema;
 
 typeorm.createConnection({
-    type: "postgre",
+    type: "postgres",
     host: "localhost",
     port: 5432,
     username: "postgres",
@@ -11,7 +12,7 @@ typeorm.createConnection({
     database: "postgres",
     synchronize: true,
     entities: [
-        new EntitySchema(require("./entity/Produto"))
+        new EntitySchema( produtoSchema)
     ]
 }).then(function (connection) {
 
